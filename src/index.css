@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.table-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.card {
+  font-size: 60px;
+  perspective: 1000px;
+  width: 70px;
+  height: 70px;
+  border: 1px black solid;
+  float: left;
+}
+
+	/* flip the pane when hovered */
+.flipped  {
+    transform: rotateY(180deg);
+    perspective: 1000px;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+	}
+
+.unflipped  {
+    transform: rotateY(0deg);
+    perspective: 1000px;
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+  }
+  
+.card .front, .back {
+  backface-visibility: hidden;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.card .front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+}
+
+/* back, initially hidden pane */
+.card .back {
+	transform: rotateY(180deg);
+}
+
+.actionButton {
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	display:inline-block;
+	cursor:pointer;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 60px;
+  text-decoration:none;
+  margin-top: 1em;
+}
+.actionButton.green {
+	-moz-box-shadow:inset 0px 1px 0px 0px #caefab;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #caefab;
+	box-shadow:inset 0px 1px 0px 0px #caefab;
+	background-color:#77d42a;
+	border:1px solid #268a16;
+	color:#306108;
+	text-shadow:0px 1px 0px #aade7c;
+}
+.actionButton.green:hover {
+	background-color:#5cb811;
+}
+
+.actionButton.red {
+	-moz-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #f5978e;
+	box-shadow:inset 0px 1px 0px 0px #f5978e;
+  background-color:#f24537;
+  border:1px solid #d02718;
+  color:#ffffff;
+  text-shadow:0px 1px 0px #810e05;
+}
+.actionButton.red:hover {
+	background-color:#c62d1f;
+}
+
+.actionButton:disabled {
+	-moz-box-shadow:inset 0px 1px 0px 0px #91b8b3;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #91b8b3;
+  box-shadow:inset 0px 1px 0px 0px #91b8b3;
+  background-color:#768d87;
+  border:1px solid #566963;
+  text-shadow:0px 1px 0px #2b665e;
+	color:#ffffff;
+}
+.actionButton:disabled:hover {
+	background-color:#6c7c7c;
+}
+
+.actionButton:active {
+	position:relative;
+	top:1px;
+}
+
+.myButton:hover {
+	background-color:#6c7c7c;
+}
